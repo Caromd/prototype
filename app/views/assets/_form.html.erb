@@ -1,0 +1,25 @@
+<%= form_for(@asset) do |f| %>
+  <% if @asset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@asset.errors.count, "error") %> prohibited this asset from being saved:</h2>
+
+      <ul>
+      <% @asset.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field"><%= f.label :owner_id %><%= f.collection_select :owner_id, @owners, :id, :name %></div>
+  <div class="field"><%= f.label :make %><%= f.text_field :make %></div>
+  <div class="field"><%= f.label :model %><%= f.text_field :model %></div>
+  <div class="field"><%= f.label :colour %><%= f.text_field :colour %></div>
+  <div class="field"><%= f.label :registration_number %><%= f.text_field :registration_number %></div>
+  <div class="field"><%= f.label :first_registration_date %><%= f.date_field :first_registration_date  %></div>
+  <div class="field"><%= f.label :vin_number %><%= f.text_field :vin_number %></div>
+  <div class="field"><%= f.label :engine_number %><%= f.text_field :engine_number %></div>
+  <div class="field"><%= f.label :purchase_price %><%= f.number_field :purchase_price %></div>
+  <div class="field"><%= f.label :date_of_purchase %><%= f.date_field :date_of_purchase  %></div>
+  <div class="actions"><%= f.submit %></div>
+<% end %>

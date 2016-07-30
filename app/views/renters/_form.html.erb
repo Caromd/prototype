@@ -1,0 +1,21 @@
+<%= form_for(@renter) do |f| %>
+  <% if @renter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@renter.errors.count, "error") %> prohibited this renter from being saved:</h2>
+
+      <ul>
+      <% @renter.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field"><%= f.label :status %><%= f.collection_select :status, @statuses, :to_s, :to_s %></div>
+  <div class="field"><%= f.label :name %><%= f.text_field :name %></div>
+  <div class="field"><%= f.label :surname %><%= f.text_field :surname %></div>
+  <div class="field"><%= f.label "ID/Passport Number" %><%= f.text_field :id_number %></div>
+  <div class="field"><%= f.label :email %><%= f.text_field :email %></div>
+  <div class="field"><%= f.label :drivers_licence %><%= f.text_field :drivers_licence %></div>
+  <div class="actions"><%= f.submit %></div>
+<% end %>

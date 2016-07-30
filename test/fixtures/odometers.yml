@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  contract_id: 
+  odometer_date: 2016-07-30
+  odometer_reading: 1
+
+two:
+  user_id: 
+  contract_id: 
+  odometer_date: 2016-07-30
+  odometer_reading: 1

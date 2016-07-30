@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  owner_id: 
+  make: MyString
+  model: MyString
+  first_registration_date: 2016-07-30
+  colour: MyString
+  registration_number: MyString
+  vin_number: MyString
+  engine_number: MyString
+  purchase_price: 9.99
+  date_of_purchase: 2016-07-30
+
+two:
+  user_id: 
+  owner_id: 
+  make: MyString
+  model: MyString
+  first_registration_date: 2016-07-30
+  colour: MyString
+  registration_number: MyString
+  vin_number: MyString
+  engine_number: MyString
+  purchase_price: 9.99
+  date_of_purchase: 2016-07-30

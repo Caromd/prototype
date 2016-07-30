@@ -1,0 +1,32 @@
+<div id="content">
+  <%= link_to 'Add Contract', new_contract_path, class: "button" %>
+  <h1>MANAGE CONTRACTS</h1>
+  <hr class="push_both" />
+  <table>
+    <thead>
+      <tr>
+        <td class="col-md-1">ID</td>
+        <td class="col-md-1">Asset</td>
+        <td class="col-md-2">Registration</td>
+        <td class="col-md-1">Renter</td>
+        <td class="col-md-5">Renter Name</td>
+        <td class="col-md-1">Actions</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @contracts.each do |contract| %>
+        <tr>
+          <td class="col-md-1"><%= contract.id %></td>
+          <td class="col-md-1"><%= contract.asset_id %></td>
+          <td class="col-md-2"><%= contract.asset.registration_number %></td>          
+          <td class="col-md-1"><%= contract.renter_id %></td>
+          <td class="col-md-5"><%= contract.renter.name + ' ' + contract.renter.surname %></td>
+          <div class="col-md-1">
+            <td><%= link_to 'Edit', edit_contract_path(contract) %></td>
+            <td><%= link_to 'Odometer', new_odometer_path(contract) %></td>
+          </div>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

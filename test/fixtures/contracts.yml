@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  asset_id: 
+  renter_id: 
+  status: MyString
+  type_of_contract: MyString
+  monthly_rental_rate: MyString
+  collection_date: 2016-07-30
+  term: 1
+  monthly_km_allowance: 1
+
+two:
+  user_id: 
+  asset_id: 
+  renter_id: 
+  status: MyString
+  type_of_contract: MyString
+  monthly_rental_rate: MyString
+  collection_date: 2016-07-30
+  term: 1
+  monthly_km_allowance: 1
