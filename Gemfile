@@ -36,6 +36,7 @@ gem 'devise', '~> 4.2'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.9'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem 'ransack', '~> 1.8', '>= 1.8.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

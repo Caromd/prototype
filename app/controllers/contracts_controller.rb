@@ -6,7 +6,10 @@ class ContractsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @contracts = Contract.all
+    @q = Contract.ransack(params[:q])
+    @contracts = @q.result.includes(:asset)
+#    @search.build_condition if @search.conditions.empty?
+#    @search.build_sort if @search.sorts.empty?
   end
 
   def new

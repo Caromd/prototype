@@ -2,10 +2,15 @@
   <%= link_to 'Add Contract', new_contract_path, class: "button" %>
   <h1>MANAGE CONTRACTS</h1>
   <hr class="push_both" />
+  <%= search_form_for @q do |f| %>
+    <%= f.label :asset_id_eq %><%= f.search_field :asset_id_eq %>
+    <%#= f.label :registration_number_cont %><%#= f.search_field :registration_number_cont %>
+    <div class="actions"><%= f.submit "Search" %></div>
+  <% end %>
   <table>
     <thead>
       <tr>
-        <td class="col-md-1">ID</td>
+        <th class="col-md-1"><%= sort_link @q, :id, "ID" %></th>
         <td class="col-md-1">Asset</td>
         <td class="col-md-2">Registration</td>
         <td class="col-md-1">Renter</td>
@@ -18,7 +23,7 @@
         <tr>
           <td class="col-md-1"><%= contract.id %></td>
           <td class="col-md-1"><%= contract.asset_id %></td>
-          <td class="col-md-2"><%= contract.asset.registration_number %></td>          
+          <td class="col-md-2"><%= contract.asset.registration_number %></td>
           <td class="col-md-1"><%= contract.renter_id %></td>
           <td class="col-md-5"><%= contract.renter.name + ' ' + contract.renter.surname %></td>
           <div class="col-md-1">
