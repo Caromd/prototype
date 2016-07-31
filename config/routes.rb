@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :renters
   resources :contracts
   resources :odometers
+  resources :invoices
+  resources :lines
   root 'contracts#index'
 end

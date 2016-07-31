@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160730091458) do
+ActiveRecord::Schema.define(version: 20160731130515) do
 
   create_table "assets", force: :cascade do |t|
     t.integer  "user_id"
@@ -49,6 +49,42 @@ ActiveRecord::Schema.define(version: 20160730091458) do
   add_index "contracts", ["asset_id"], name: "index_contracts_on_asset_id"
   add_index "contracts", ["renter_id"], name: "index_contracts_on_renter_id"
   add_index "contracts", ["user_id"], name: "index_contracts_on_user_id"
+
+  create_table "invoices", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "contract_id"
+    t.date     "invoice_date"
+    t.string   "invoice_number"
+    t.text     "comments"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "invoices", ["contract_id"], name: "index_invoices_on_contract_id"
+  add_index "invoices", ["user_id"], name: "index_invoices_on_user_id"
+
+  create_table "line_types", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "line_type"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "line_types", ["user_id"], name: "index_line_types_on_user_id"
+
+  create_table "lines", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "invoice_id"
+    t.integer  "line_type_id"
+    t.decimal  "amount"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "lines", ["invoice_id"], name: "index_lines_on_invoice_id"
+  add_index "lines", ["line_type_id"], name: "index_lines_on_line_type_id"
+  add_index "lines", ["user_id"], name: "index_lines_on_user_id"
 
   create_table "odometers", force: :cascade do |t|
     t.integer  "user_id"
