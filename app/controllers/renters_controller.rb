@@ -4,7 +4,8 @@ class RentersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @renters = Renter.all
+    @q = Renter.ransack(params[:q])
+    @renters = @q.result.order(id: 'desc')
   end
 
   def new

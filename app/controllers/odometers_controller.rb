@@ -1,8 +1,10 @@
 class OdometersController < ApplicationController
   before_action :set_odometer, only: [:show, :edit, :update, :destroy]
+  before_action :get_contracts, only: [:new, :edit]
 
   def index
-    @odometers = Odometer.where(contract_id: params[:contract_id])
+    @q = Odometer.ransack(params[:q])
+    @odometers = @q.result.includes(:contract)
   end
 
   def new
@@ -50,7 +52,11 @@ class OdometersController < ApplicationController
     def set_odometer
       @odometer = Odometer.find(params[:id])
     end
-
+    
+    def get_contracts
+      @contracts = Contract.all
+    end
+    
     def odometer_params
       params.require(:odometer).permit(:user_id, :contract_id, :odometer_date, :odometer_reading)
     end

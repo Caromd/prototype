@@ -3,18 +3,18 @@
   <h1>MANAGE CONTRACTS</h1>
   <hr class="push_both" />
   <%= search_form_for @q do |f| %>
-    <%= f.label :asset_id_eq %><%= f.search_field :asset_id_eq %>
-    <%#= f.label :registration_number_cont %><%#= f.search_field :registration_number_cont %>
-    <div class="actions"><%= f.submit "Search" %></div>
+    <%= f.label :id_eq, "ID"%><%= f.search_field :id_eq %>
+    <%= f.label :asset_id_eq, "Asset"%><%= f.search_field :asset_id_eq %>
+    <%= f.submit "Search" %>
   <% end %>
   <table>
     <thead>
       <tr>
-        <th class="col-md-1"><%= sort_link @q, :id, "ID" %></th>
-        <td class="col-md-1">Asset</td>
-        <td class="col-md-2">Registration</td>
-        <td class="col-md-1">Renter</td>
-        <td class="col-md-5">Renter Name</td>
+        <th class="col-md-1"><%= sort_link @q, :id, "ID", default_order: :desc %></th>
+        <td class="col-md-1"><%= sort_link @q, :asset_id, "Asset" %></td>
+        <td class="col-md-2"><%= sort_link @q, :asset_registration_number, "Registration" %></td>
+        <td class="col-md-1"><%= sort_link @q, :renter_id, "Renter" %></td>
+        <td class="col-md-5"><%= sort_link @q, :renter_surname, "Renter Name" %></td>
         <td class="col-md-1">Actions</td>
       </tr>
     </thead>
@@ -26,10 +26,7 @@
           <td class="col-md-2"><%= contract.asset.registration_number %></td>
           <td class="col-md-1"><%= contract.renter_id %></td>
           <td class="col-md-5"><%= contract.renter.name + ' ' + contract.renter.surname %></td>
-          <div class="col-md-1">
-            <td><%= link_to 'Edit', edit_contract_path(contract) %></td>
-            <td><%= link_to 'Odometer', new_odometer_path(contract) %></td>
-          </div>
+          <td class="col-md-1"><%= link_to 'Edit', edit_contract_path(contract) %></td>
         </tr>
       <% end %>
     </tbody>

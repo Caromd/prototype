@@ -1,0 +1,30 @@
+<div id="content">
+  <%= link_to 'Add odometer', new_odometer_path, class: "button" %>
+  <h1>MANAGE ODOMETER READINGS</h1>
+  <hr class="push_both" />
+  <%= search_form_for @q do |f| %>
+    <%= f.label :contract_id_eq, "Contract ID"%><%= f.search_field :contract_id_eq %>
+    <%= f.label :odometer_date_eq, "Date"%><%= f.search_field :odometer_date_eq %>
+    <%= f.submit "Search" %>
+  <% end %>
+  <table>
+    <thead>
+      <tr>
+        <th class="col-md-1"><%= sort_link @q, :contract_id, "Contract ID" %></th>
+        <th class="col-md-1"><%= sort_link @q, :odometer_date, "Date" %></th>
+        <th class="col-md-1"><%= sort_link @q, :odometer_reading, "Reading" %></th>
+        <th class="col-md-1">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @odometers.each do |odometer| %>
+        <tr>
+          <td class="col-md-1"><%= odometer.contract_id %></td>
+          <td class="col-md-2"><%= odometer.odometer_date %></td>
+          <td class="col-md-2"><%= odometer.odometer_reading %></td>
+          <td class="col-md-1"><%= link_to 'Edit', edit_odometer_path(odometer) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

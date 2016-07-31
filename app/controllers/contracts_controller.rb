@@ -7,9 +7,7 @@ class ContractsController < ApplicationController
 
   def index
     @q = Contract.ransack(params[:q])
-    @contracts = @q.result.includes(:asset)
-#    @search.build_condition if @search.conditions.empty?
-#    @search.build_sort if @search.sorts.empty?
+    @contracts = @q.result.includes(:asset).order(id: 'desc')
   end
 
   def new
