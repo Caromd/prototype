@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801101315) do
+ActiveRecord::Schema.define(version: 20160801111909) do
 
   create_table "assets", force: :cascade do |t|
     t.integer  "user_id"
@@ -25,8 +25,32 @@ ActiveRecord::Schema.define(version: 20160801101315) do
     t.string   "engine_number"
     t.decimal  "purchase_price"
     t.date     "date_of_purchase"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "status"
+    t.boolean  "full_service_history"
+    t.date     "rental_date_available_to"
+    t.date     "rental_date_available_from"
+    t.integer  "service_intervals"
+    t.boolean  "warranty"
+    t.date     "warranty_start_date"
+    t.date     "warranty_end_date"
+    t.integer  "warranty_km"
+    t.boolean  "service_plan"
+    t.date     "service_plan_start_date"
+    t.date     "service_plan_end_date"
+    t.integer  "service_plan_km"
+    t.string   "insurer"
+    t.string   "policy_number"
+    t.string   "roadside_assistance_provider"
+    t.string   "roadside_assistance_number"
+    t.date     "date_loaded_on_system"
+    t.date     "vehicle_license_expiry_date"
+    t.date     "date_of_next_service"
+    t.integer  "km_next_service"
+    t.date     "date_of_last_service"
+    t.boolean  "etag"
+    t.string   "etag_number"
   end
 
   add_index "assets", ["owner_id"], name: "index_assets_on_owner_id"
