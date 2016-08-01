@@ -1,8 +1,6 @@
 class ContractsController < ApplicationController
   before_action :set_contract, only: [:show, :edit, :update, :destroy]
-  before_action :get_renters, only: [:new, :edit]
-  before_action :get_assets, only: [:new, :edit]
-  before_action :get_statuses, only: [:new, :edit]
+  before_action :get_dropdowns, only: [:new, :edit]
   before_action :authenticate_user!
 
   def index
@@ -56,20 +54,16 @@ class ContractsController < ApplicationController
       @contract = Contract.find(params[:id])
     end
     
-    def get_renters
+    def get_dropdowns
       @renters = Renter.all
-    end
-    
-    def get_statuses
       @statuses = ["Active","Inactive"]
-    end
-    
-    def get_assets
       @assets = Asset.all
+      @types_of_contract = ["Managed","Collection Only"]
+      @payment_methods = ["Credit Card","EFT","Debit Order","Cash"]
     end
 
 
     def contract_params
-      params.require(:contract).permit(:user_id ,:asset_id, :renter_id, :status, :type_of_contract, :monthly_rental_rate, :collection_date, :term, :monthly_km_allowance)
+      params.require(:contract).permit(:user_id ,:asset_id, :renter_id, :status, :type_of_contract, :monthly_rental_rate, :collection_date, :term, :monthly_km_allowance, :return_date, :initial_odometer_reading, :daily_km_allowance, :payment_day, :payment_method, :additional_drivers, :deposit_sum_held, :deposit_at_risk, :late_payment_flag)
     end
 end

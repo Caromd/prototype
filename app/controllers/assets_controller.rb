@@ -59,6 +59,30 @@ class AssetsController < ApplicationController
     end
 
     def asset_params
-      params.require(:asset).permit(:user_id, :owner_id, :make, :model, :first_registration_date, :colour, :registration_number, :vin_number, :engine_number, :purchase_price, :date_of_purchase)
+      params.require(:asset).permit(:user_id, :owner_id, :make, :model, :first_registration_date, :colour, :registration_number, :vin_number, :engine_number, :purchase_price, :date_of_purchase,
+      :status, 
+      :full_service_history, 
+      :rental_date_available_to, 
+      :rental_date_available_from, 
+      :service_intervals, 
+      :warranty, 
+      :warranty_start_date, 
+      :warranty_end_date, 
+      :warranty_km, 
+      :service_plan, 
+      :service_plan_start_date, 
+      :service_plan_end_date, 
+      :service_plan_km, 
+      :insurer, 
+      :policy_number, 
+      :roadside_assistance_provider, 
+      :roadside_assistance_number, 
+      :date_loaded_on_system, 
+      :vehicle_license_expiry_date, 
+      :date_of_next_service, 
+      :km_next_service, 
+      :date_of_last_service, 
+      :etag, 
+      :etag_number)
     end
 end

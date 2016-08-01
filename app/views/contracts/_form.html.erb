@@ -14,11 +14,21 @@
   <div class="field"><%= f.label :asset_id %><%= f.collection_select :asset_id, @assets, :id, :id %></div>
   <div class="field"><%= f.label :renter_id %><%= f.collection_select :renter_id, @renters, :id, :id %></div>
   <div class="field"><%= f.label :status %><%= f.collection_select :status, @statuses, :to_s, :to_s %></div>
-  <div class="field"><%= f.label :type_of_contract %><%= f.text_field :type_of_contract %></div>
+  <div class="field"><%= f.label :type_of_contract %><%= f.collection_select :type_of_contract, @types_of_contract, :to_s, :to_s %></div>
   <div class="field"><%= f.label :monthly_rental_rate %><%= f.number_field :monthly_rental_rate %></div>  
   <div class="field"><%= f.label :monthly_km_allowance %><%= f.number_field :monthly_km_allowance %></div>
+  <div class="field"><%= f.label :daily_km_allowance %><%= f.text_field :daily_km_allowance %></div>
   <div class="field"><%= f.label :term %><%= f.number_field :term %></div>
   <div class="field"><%= f.label :collection_date %><%= f.date_field :collection_date%></div>
-  
+  <div class="field"><%= f.label :return_date %><%= f.date_field :return_date %></div>
+  <div class="field"><%= f.label :initial_odometer_reading %><%= f.text_field :initial_odometer_reading %></div>
+  <h2>Financial</h2>
+  <div class="field"><%= f.label :payment_method %><%= f.collection_select :payment_method, @payment_methods, :to_s, :to_s %></div>
+  <div class="field"><%= f.label :payment_day %><%= f.text_field :payment_day %></div>
+  <div class="field"><%= f.label :deposit_sum_held %><%= f.text_field :deposit_sum_held %></div>
+  <div class="field"><%= f.label :deposit_at_risk, "Deposit at risk?" %><%= f.check_box :deposit_at_risk %></div>
+  <div class="field"><%= f.label :late_payment_flag, "Late payment?" %><%= f.check_box :late_payment_flag %></div>  
+  <h2>Additional Drivers</h2>
+  <div class="field"><%= f.label :additional_drivers, "Additional drivers?" %><%= f.check_box :additional_drivers %></div>
   <div class="actions"><%= f.submit %></div>
 <% end %>

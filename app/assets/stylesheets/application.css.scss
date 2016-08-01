@@ -128,7 +128,8 @@ input[type="text"], input[type="date"] {
 }
 
 #contract_asset_id, #contract_renter_id, #contract_status, #asset_owner_id, #renter_status, #odometer_contract_id, #invoice_contract_id,
-#owner_province, #owner_service_required, #owner_legal_entity {
+#owner_province, #owner_service_required, #owner_legal_entity, #renter_payment_method, #renter_province, #contract_type_of_contract, #contract_payment_method
+{
 	float: right;
 	width: 70%;
 	margin: 0 2% 0 0;

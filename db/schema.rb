@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801111909) do
+ActiveRecord::Schema.define(version: 20160801131244) do
 
   create_table "assets", force: :cascade do |t|
     t.integer  "user_id"
@@ -66,8 +66,17 @@ ActiveRecord::Schema.define(version: 20160801111909) do
     t.date     "collection_date"
     t.integer  "term"
     t.integer  "monthly_km_allowance"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.date     "return_date"
+    t.integer  "initial_odometer_reading"
+    t.integer  "daily_km_allowance"
+    t.integer  "payment_day"
+    t.string   "payment_method"
+    t.string   "additional_drivers"
+    t.integer  "deposit_sum_held"
+    t.integer  "deposit_at_risk"
+    t.boolean  "late_payment_flag"
   end
 
   add_index "contracts", ["asset_id"], name: "index_contracts_on_asset_id"
@@ -164,8 +173,20 @@ ActiveRecord::Schema.define(version: 20160801111909) do
     t.string   "id_number"
     t.string   "email"
     t.string   "drivers_licence"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "residential_address1"
+    t.string   "residential_address2"
+    t.string   "suburb"
+    t.string   "city"
+    t.string   "province"
+    t.string   "landline"
+    t.date     "date_drivers_licence_expires"
+    t.string   "payment_method"
+    t.boolean  "consent_to_credit_check"
+    t.integer  "net_monthly_household_income"
+    t.integer  "max_rental_approved"
+    t.boolean  "clean_credit_record"
   end
 
   add_index "renters", ["user_id"], name: "index_renters_on_user_id"

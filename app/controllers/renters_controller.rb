@@ -1,6 +1,6 @@
 class RentersController < ApplicationController
   before_action :set_renter, only: [:show, :edit, :update, :destroy]
-  before_action :get_statuses, only: [:new, :edit]
+  before_action :get_dropdowns, only: [:new, :edit]
   before_action :authenticate_user!
 
   def index
@@ -54,11 +54,13 @@ class RentersController < ApplicationController
       @renter = Renter.find(params[:id])
     end
 
-    def get_statuses
+    def get_dropdowns
       @statuses = ["Active","Inactive"]
+      @provinces = ["Western Cape","Other"]
+      @payment_methods = ["Credit Card","EFT","Debit Order","Cash"]
     end
 
     def renter_params
-      params.require(:renter).permit(:user_id, :name, :surname, :id_number, :email, :drivers_licence)
+      params.require(:renter).permit(:user_id, :name, :surname, :id_number, :email, :drivers_licence, :residential_address1, :residential_address2, :suburb, :city, :province, :landline, :date_drivers_licence_expires, :payment_method, :consent_to_credit_check, :net_monthly_household_income, :max_rental_approved, :clean_credit_record)
     end
 end
