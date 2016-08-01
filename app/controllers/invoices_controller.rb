@@ -8,10 +8,16 @@ class InvoicesController < ApplicationController
   end
 
   def new
-    @invoice = Invoice.new
+    @invoice = Invoice.new   
+    6.times do
+      @line = @invoice.lines.build
+    end
   end
 
   def edit
+    3.times do
+      @line = @invoice.lines.build
+    end
   end
 
   def create
@@ -58,6 +64,7 @@ class InvoicesController < ApplicationController
     end
     
     def invoice_params
-      params.require(:invoice).permit(:user_id, :contract_id, :invoice_date, :invoice_number, :comments)
+      params.require(:invoice).permit(:user_id, :contract_id, :invoice_date, :invoice_number, :comments,
+      lines_attributes: [:id, :user_id, :line_type_id, :amount, :_destroy])
     end
 end

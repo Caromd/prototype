@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731130515) do
+ActiveRecord::Schema.define(version: 20160801101315) do
 
   create_table "assets", force: :cascade do |t|
     t.integer  "user_id"
@@ -103,8 +103,31 @@ ActiveRecord::Schema.define(version: 20160731130515) do
     t.string   "name"
     t.string   "mobile"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "legal_entity"
+    t.string   "id_number"
+    t.string   "registered_name"
+    t.string   "trading_name"
+    t.string   "registration_number"
+    t.string   "residential_address1"
+    t.string   "residential_address2"
+    t.string   "suburb"
+    t.string   "city"
+    t.string   "province"
+    t.string   "landline"
+    t.string   "service_required"
+    t.string   "agent"
+    t.decimal  "rebate_rate"
+    t.string   "vat_number"
+    t.string   "bank"
+    t.string   "type_of_account"
+    t.string   "branch_code"
+    t.string   "account_number"
+    t.string   "contact_name"
+    t.string   "contact_surname"
+    t.string   "contact_telephone_number"
+    t.string   "contact_email_address"
   end
 
   add_index "owners", ["user_id"], name: "index_owners_on_user_id"

@@ -1,5 +1,6 @@
 class OwnersController < ApplicationController
   before_action :set_owner, only: [:show, :edit, :update, :destroy]
+  before_action :get_dropdowns, only: [:new, :edit]
   before_action :authenticate_user!
 
   def index
@@ -50,6 +51,12 @@ class OwnersController < ApplicationController
   private
     def set_owner
       @owner = Owner.find(params[:id])
+    end
+
+    def get_dropdowns
+      @legal_entities = ["Individual","Partnership","CC","Company/Trust"]
+      @services_required = ["Fully Managed", "Rental Collection Only"]
+      @provinces = ["Western Cape","Other"]
     end
 
     def owner_params

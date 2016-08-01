@@ -11,8 +11,36 @@
     </div>
   <% end %>
 
+  <div class="field"><%= f.label :legal_entity %><%= f.collection_select :legal_entity, @legal_entities, :to_s, :to_s %></div>
   <div class="field"><%= f.label :name %><%= f.text_field :name %></div>
   <div class="field"><%= f.label :mobile %><%= f.text_field :mobile %></div>
   <div class="field"><%= f.label :email %><%= f.text_field :email %></div>
+  <div class="field"><%= f.label :landline %><%= f.text_field :landline %></div>
+  <div class="field"><%= f.label :id_number %><%= f.text_field :id_number %></div>
+  <div class="field"><%= f.label :registered_name %><%= f.text_field :registered_name %></div>
+  <div class="field"><%= f.label :trading_name %><%= f.text_field :trading_name  %></div>
+  <div class="field"><%= f.label :registration_number %><%= f.text_field :registration_number %></div>
+  <div class="field"><%= f.label :vat_number %><%= f.text_field :vat_number %></div>
+  <h2>Address Details</h2>
+  <div class="field"><%= f.label :residential_address1 %><%= f.text_field :residential_address1 %></div>
+  <div class="field"><%= f.label :residential_address2 %><%= f.text_field :residential_address2 %></div>
+  <div class="field"><%= f.label :suburb %><%= f.text_field :suburb %></div>
+  <div class="field"><%= f.label :city %><%= f.text_field :city %></div>
+  <div class="field"><%= f.label :province %><%= f.collection_select :province, @provinces, :to_s, :to_s %></div>
+  <h2>Bank Details</h2>
+  <div class="field"><%= f.label :bank %><%= f.text_field :bank %></div>
+  <div class="field"><%= f.label :type_of_account %><%= f.text_field :type_of_account %></div>
+  <div class="field"><%= f.label :branch_code %><%= f.text_field :branch_code %></div>
+  <div class="field"><%= f.label :account_number %><%= f.text_field :account_number %></div>
+  <div class="field"><%= f.label :contact_name %><%= f.text_field :contact_name %></div>
+  <h2>Contact</h2>
+  <div class="field"><%= f.label :contact_surname %><%= f.text_field :contact_surname %></div>
+  <div class="field"><%= f.label :contact_telephone_number %><%= f.text_field :contact_telephone_number %></div>
+  <div class="field"><%= f.label :contact_email_address %><%= f.text_field :contact_email_address %></div>
+  <h2>Service</h2>  
+  <div class="field"><%= f.label :service_required %><%= f.collection_select :service_required, @services_required, :to_s, :to_s %></div>
+  <div class="field"><%= f.label :agent %><%= f.text_field :agent %></div>
+  <div class="field"><%= f.label :rebate_rate %><%= f.number_field :rebate_rate %></div>
+
   <div class="actions"><%= f.submit %></div>
 <% end %>

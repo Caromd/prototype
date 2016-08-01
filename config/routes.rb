@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :odometers
   resources :invoices
   resources :lines
+  resources :line_types
   root 'contracts#index'
 end

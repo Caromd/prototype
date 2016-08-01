@@ -15,4 +15,15 @@
   <div class="field"><%= f.label :invoice_number %><%= f.text_field :invoice_number %></div>
   <div class="field"><%= f.label :comments %><%= f.text_area :comments %></div>
   <div class="actions"><%= f.submit %></div>
+  <hr>
+  <h2>INVOICE LINES</h2>
+  <div id="lines">
+      <%= f.fields_for :lines, :html => { :class => 'form-horizontal' } do |line| %>
+        <%= render 'line_fields', f: line %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association 'Add line', f, :lines %>
+      </div>
+    </div>
+  
 <% end %>

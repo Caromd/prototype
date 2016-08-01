@@ -1,0 +1,23 @@
+<div id="content">
+  <%= link_to 'Add Type', new_line_type_path, class: "button" %>
+  <h1>MANAGE LINE TYPES</h1>
+  <hr class="push_both" />
+  <table>
+    <thead>
+      <tr>
+        <td class="col-md-1">Type</td>
+        <td class="col-md-8">Description</td>
+        <td class="col-md-1">Actions</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @line_types.each do |line_type| %>
+        <tr>
+          <td class="col-md-1"><%= line_type.line_type %></td>
+          <td class="col-md-8"><%= line_type.description %></td>
+          <td class="col-md-1"><%= link_to 'Edit', edit_line_type_path(line_type) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

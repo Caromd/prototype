@@ -127,7 +127,8 @@ input[type="text"], input[type="date"] {
 	padding-left: 0;
 }
 
-#contract_asset_id, #contract_renter_id, #contract_status, #asset_owner_id, #renter_status, #odometer_contract_id, #invoice_contract_id {
+#contract_asset_id, #contract_renter_id, #contract_status, #asset_owner_id, #renter_status, #odometer_contract_id, #invoice_contract_id,
+#owner_province, #owner_service_required, #owner_legal_entity {
 	float: right;
 	width: 70%;
 	margin: 0 2% 0 0;
@@ -152,7 +153,6 @@ input[type="number"] {
 	border-radius: 4px;
 	padding-left: 0;
 }
-
 
 input[type="email"] {
 	width: 90%;
@@ -213,7 +213,7 @@ input[type="submit"] {
 
 ::-webkit-input-placeholder { color: $dark; }
 
-.navbar-right {width: 60%}; 
+.navbar-right {width: 70%}; 
  
 textarea {
 	float: right;
@@ -226,7 +226,7 @@ textarea {
 	height: 30px;
 	border-radius: 4px;
 	padding-left: 0;
-  height: 100px;
+  height: 50px;
 }
 
 table {
@@ -246,10 +246,8 @@ thead {
 
 ul, li {list-style-type: none;}
 
-input#year {width: 20%; margin-left: 0;}
-input#month {width: 12%}
+
 #form {padding-left: 10px};
-#summary-form {padding-left: 70px};
 
 .button {
 	text-align: center;
@@ -269,3 +267,26 @@ input#month {width: 12%}
 		color: white;
 	}
 }
+
+/* Invoice lines blocks (all) */
+[id*="invoice_lines_attributes_"] {
+	float: left;
+	width: 50%;
+	margin: 0 2% 0 0;
+	display: inline-block;
+	outline: none;
+	background: $grey_opaque;
+	border: none;
+	height: 30px;
+	border-radius: 4px;
+	padding-left: 0;
+}
+div#lines {width: 70%; float: right;}
+/*select#result_fields.select.required.form-control {width: 30%;}
+input#line_amount.numeric.decimal.required.form-control {width: 30%;} */
+input#invoice_lines_attributes_0_amount {width: 20%; float: left;}
+input#invoice_lines_attributes_1_amount {width: 20%; float: left;}
+input#invoice_lines_attributes_2_amount {width: 20%; float: left;}
+input#invoice_lines_attributes_3_amount {width: 20%; float: left;}
+input#invoice_lines_attributes_4_amount {width: 20%; float: left;}
+input#invoice_lines_attributes_5_amount {width: 20%; float: left;}

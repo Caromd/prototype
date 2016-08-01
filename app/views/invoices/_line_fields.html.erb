@@ -1,0 +1,5 @@
+<div class="nested-fields">
+    <%= f.collection_select(:line_type_id, LineType.all, :id, :type_and_description, prompt: true) %>
+    <%= f.number_field :amount, label: false, placeholder: "Amount", :input_html => {value: number_with_precision(f.object.amount, precision: 2)},:label_html => { :id => 'line_amount' } %>
+    <%#= link_to_remove_association "X", f, id: "button" %>
+</div>
