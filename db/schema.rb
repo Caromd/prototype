@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802104913) do
+ActiveRecord::Schema.define(version: 20160802123847) do
 
   create_table "assets", force: :cascade do |t|
     t.integer  "user_id"
@@ -51,8 +51,12 @@ ActiveRecord::Schema.define(version: 20160802104913) do
     t.date     "date_of_last_service"
     t.boolean  "etag"
     t.string   "etag_number"
+    t.integer  "make_id"
+    t.integer  "model_id"
   end
 
+  add_index "assets", ["make_id"], name: "index_assets_on_make_id"
+  add_index "assets", ["model_id"], name: "index_assets_on_model_id"
   add_index "assets", ["owner_id"], name: "index_assets_on_owner_id"
   add_index "assets", ["user_id"], name: "index_assets_on_user_id"
 

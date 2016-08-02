@@ -1,6 +1,6 @@
 class AssetsController < ApplicationController
   before_action :set_asset, only: [:show, :edit, :update, :destroy]
-  before_action :get_owners, only: [:new, :edit]
+  before_action :get_dropdowns, only: [:new, :edit]
   before_action :authenticate_user!
 
   def index
@@ -54,8 +54,9 @@ class AssetsController < ApplicationController
       @asset = Asset.find(params[:id])
     end
 
-    def get_owners
+    def get_dropdowns
       @owners = Owner.all
+      @makes = Make.all.order(name: :asc)
     end
 
     def asset_params

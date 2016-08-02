@@ -13,8 +13,13 @@
 
   <div class="field"><%= f.label :owner_id %><%= f.collection_select :owner_id, @owners, :id, :name %></div>
   <h2>Vehicle Details</h2>
-  <div class="field"><%= f.label :make %><%= f.text_field :make %></div>
-  <div class="field"><%= f.label :model %><%= f.text_field :model %></div>
+  <div class="field"><%= f.label :make %><%= f.collection_select :make_id, @makes, :id, :name %></div>
+  <div class="field"> <%= f.grouped_collection_select :model_id, Make.order(:name), :models, :name, :id, :name %></div>
+<% if false %>
+
+  <% @models = Model.where(make_id: :make_id) %>
+  <div class="field"><%= f.label :model %><%= f.collection_select :model_id, @models, :id, :name %></div>
+<% end %>
   <div class="field"><%= f.label :colour %><%= f.text_field :colour %></div>
   <div class="field"><%= f.label :registration_number %><%= f.text_field :registration_number %></div>
   <div class="field"><%= f.label :first_registration_date %><%= f.date_field :first_registration_date  %></div>
