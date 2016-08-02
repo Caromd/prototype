@@ -1,0 +1,29 @@
+<div id="content">
+  <h1>MANAGE MODELS</h1>
+  <hr class="push_both" />
+  <table>
+    <thead>
+      <tr>
+        <td class="col-md-4">Make</td>
+        <td class="col-md-4">Model</td>
+        <td class="col-md-1">Actions</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @models.each do |model| %>
+        <tr>
+          <td class="col-md-4"><%= model.make.name %></td>
+          <td class="col-md-4"><%= model.name %></td>
+          <td class="col-md-1"><%= link_to 'Edit', edit_model_path(model) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <hr class="push_both" />
+  <h2>Create New Model</h2>
+  <%= form_for @model, url: {controller: "models", action: "create"} do |m| %>
+    <div class="field"><%= m.collection_select :make_id, @makes, :id, :name %></div>
+    <div class="field"><%= m.text_field :name %></div>
+    <%= m.submit "Add New model"%>
+  <% end %>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801131244) do
+ActiveRecord::Schema.define(version: 20160802104913) do
 
   create_table "assets", force: :cascade do |t|
     t.integer  "user_id"
@@ -118,6 +118,26 @@ ActiveRecord::Schema.define(version: 20160801131244) do
   add_index "lines", ["invoice_id"], name: "index_lines_on_invoice_id"
   add_index "lines", ["line_type_id"], name: "index_lines_on_line_type_id"
   add_index "lines", ["user_id"], name: "index_lines_on_user_id"
+
+  create_table "makes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "makes", ["user_id"], name: "index_makes_on_user_id"
+
+  create_table "models", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "make_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "models", ["make_id"], name: "index_models_on_make_id"
+  add_index "models", ["user_id"], name: "index_models_on_user_id"
 
   create_table "odometers", force: :cascade do |t|
     t.integer  "user_id"

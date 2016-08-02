@@ -17,7 +17,9 @@
         <li><%= link_to "CONTRACTS", contracts_path %></li>
         <li><%= link_to "READINGS", odometers_path %></li>
         <li><%= link_to "INVOICES", invoices_path %></li>
-        <li><%= link_to "LINE TYPES", line_types_path %></li>        
+        <li><%= link_to "LINE TYPES", line_types_path %></li> 
+        <li><%= link_to "MAKES", makes_path %></li>
+        <li><%= link_to "MODELS", models_path %></li> 
         <% if user_signed_in? %>
             <li><%= link_to 'Edit profile', edit_user_registration_path %> </li>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete  %> </li>

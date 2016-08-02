@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   resources :invoices
   resources :lines
   resources :line_types
+  resources :makes
+  resources :models
   root 'contracts#index'
 end

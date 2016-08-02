@@ -128,7 +128,8 @@ input[type="text"], input[type="date"] {
 }
 
 #contract_asset_id, #contract_renter_id, #contract_status, #asset_owner_id, #renter_status, #odometer_contract_id, #invoice_contract_id,
-#owner_province, #owner_service_required, #owner_legal_entity, #renter_payment_method, #renter_province, #contract_type_of_contract, #contract_payment_method
+#owner_province, #owner_service_required, #owner_legal_entity, #renter_payment_method, #renter_province, #contract_type_of_contract, 
+#contract_payment_method, #model_make_id
 {
 	float: right;
 	width: 70%;
@@ -215,7 +216,7 @@ input[type="submit"] {
 
 ::-webkit-input-placeholder { color: $dark; }
 
-.navbar-right {width: 70%}; 
+.navbar-right {width: 83%}; 
  
 textarea {
 	float: right;
