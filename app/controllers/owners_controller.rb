@@ -4,7 +4,8 @@ class OwnersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @owners = Owner.all
+    @q = Owner.ransack(params[:q])
+    @owners = @q.result.order(id: 'desc')
   end
 
   def new

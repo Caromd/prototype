@@ -2,11 +2,14 @@
   <%= link_to 'Add Owner', new_owner_path, class: "button" %>
   <h1>MANAGE OWNERS</h1>
   <hr class="push_both" />
+  <%= search_form_for @q do |f| %>
+    <%= f.label :name_cont, "Search Name for" %><%= f.search_field :name_cont %><%= f.submit %>
+  <% end %>
   <table>
     <thead>
       <tr>
-        <td class="col-md-1">ID</td>
-        <td class="col-md-8">Name</td>
+        <td class="col-md-1"><%= sort_link(@q, :id, 'ID', default_order: :desc) %></td>
+        <td class="col-md-8"><%= sort_link(@q, :name, 'Name') %></td>
         <td class="col-md-1">Actions</td>
       </tr>
     </thead>
