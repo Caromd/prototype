@@ -11,8 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field"><%= f.label :asset_id %><%= f.collection_select :asset_id, @assets, :id, :id %></div>
-  <div class="field"><%= f.label :renter_id %><%= f.collection_select :renter_id, @renters, :id, :id %></div>
+  <div class="field"><%= f.label :asset_id %><%= f.collection_select :asset_id, @assets, :id, :registration_number %></div>
+  <div class="field"><%= f.label :renter_id %><%= f.collection_select :renter_id, @renters, :id, :fullname %></div>
   <div class="field"><%= f.label :status %><%= f.collection_select :status, @statuses, :to_s, :to_s %></div>
   <div class="field"><%= f.label :type_of_contract %><%= f.collection_select :type_of_contract, @types_of_contract, :to_s, :to_s %></div>
   <div class="field"><%= f.label :monthly_rental_rate %><%= f.number_field :monthly_rental_rate %></div>  

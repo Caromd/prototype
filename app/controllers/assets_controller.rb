@@ -60,7 +60,7 @@ class AssetsController < ApplicationController
     end
 
     def asset_params
-      params.require(:asset).permit(:user_id, :owner_id, :make, :model, :first_registration_date, :colour, :registration_number, :vin_number, :engine_number, :purchase_price, :date_of_purchase,
+      params.require(:asset).permit(:user_id, :owner_id, :make_id, :model_id, :first_registration_date, :colour, :registration_number, :vin_number, :engine_number, :purchase_price, :date_of_purchase,
       :status, 
       :full_service_history, 
       :rental_date_available_to, 

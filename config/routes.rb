@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :line_types
   resources :makes
   resources :models
-  root 'contracts#index'
+  root 'owners#index'
 end

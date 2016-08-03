@@ -11,7 +11,7 @@
     <thead>
       <tr>
         <th class="col-md-1"><%= sort_link @q, :id, "ID" %></th>
-        <th class="col-md-2"><%= sort_link @q, :make, "Make/Model" %></th>
+        <th class="col-md-2"><%= sort_link @q, :make_name, "Make/Model" %></th>
         <th class="col-md-2"><%= sort_link @q, :registration_number, "Registration" %></th>
         <th class="col-md-4"><%= sort_link @q, :owner_name, "Owner" %></th>
         <th class="col-md-1">Actions</th>
@@ -21,7 +21,7 @@
       <% @assets.each do |asset| %>
         <tr>
           <td class="col-md-1"><%= asset.id %></td>
-          <td class="col-md-2"><%= asset.make + " " + asset.model %></td>
+          <td class="col-md-2"><%= asset.make.name + " " + asset.model.name %></td>
           <td class="col-md-2"><%= asset.registration_number %></td>
           <td class="col-md-4"><%= asset.owner.id.to_s + " " + asset.owner.name %></td>
           <td class="col-md-1"><%= link_to 'Edit', edit_asset_path(asset) %></td>

@@ -3,7 +3,7 @@ class ModelsController < ApplicationController
   before_action :get_dropdowns, only: [:index, :edit]
 
   def index
-    @models = Model.all
+    @models = Model.all.order(make_id: 'asc')
     @model = Model.new
   end
 
